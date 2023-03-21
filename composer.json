@@ -1,0 +1,22 @@
+{
+    "name": "melkyi1/pop-it-mvc",
+    "description": "rabota nomer raz",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Melkyi1",
+            "email": "grebenuk13@yandex.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.4 | ^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Src\\": "core/Src/",
+            "": "app/"
+        }
+    }
+}
