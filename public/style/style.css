@@ -1,0 +1,25 @@
+h2 {
+    color: red;
+}
+.topButtonRight {
+    margin-left: 100px;
+    background-color: #642EFF;
+    border-radius: 5px;
+    color: black;
+
+}
+.topcollor {
+    background-color: rgba(104,0,237,0.75);
+}
+.mainButton {
+    border-radius: 15px;
+    color: black;
+    background-color: #642EFF;
+}
+.mainButtonPosition {
+    line-height: 150px;
+    text-align: center;
+}
+.mainBackground {
+    background-color: rgba(98,0,143,0.65);
+}

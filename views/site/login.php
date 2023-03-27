@@ -1,7 +1,8 @@
-<h2>Авторизация</h2>
-<h3><?= $message ?? ''; ?></h3>
+<link rel="stylesheet" href="public/style/style.css">
+<h2 class="value">Авторизация</h2>
+<h3 class="topButtonRight"><?= $message ?? ''; ?></h3>
 
-<h3><?= app()->auth->user()->name ?? ''; ?></h3>
+<h3 class="topButtonRight"><?= app()->auth->user()->name ?? ''; ?></h3>
 <?php
 if (!app()->auth::check()):
     ?>
