@@ -10,8 +10,11 @@ h2 {
 }
 .topcollor {
     background-color: rgba(104,0,237,0.75);
+    padding: 15px;
 }
 .mainButton {
+    height: 65px;
+    width: 300px;
     border-radius: 15px;
     color: black;
     background-color: #642EFF;
@@ -21,5 +24,42 @@ h2 {
     text-align: center;
 }
 .mainBackground {
+    height: 100%;
     background-color: rgba(98,0,143,0.65);
+    background-image: url(https://mirpozitiva.ru/wp-content/uploads/2019/11/1480505775_cosmos_0011.jpg);
+    background-attachment: fixed;
+    background-position: center;
+}
+.mainBackgroundfon {
+    height: 100%;
+    background-color: rgba(98,0,143,0.65);
+    justify-content: center;
+    text-align: center;
+}
+.search1 {
+    color: black;
+    width: 350px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #00D1FF;
+    margin: 30px;
+    justify-content: center;
+    text-align: center;
+}
+.buttonCONFIRM {
+    color: black;
+    width: 250px;
+    height: 40px;
+    border-radius: 30px;
+    background-color: rgba(0,209,255,0.5);
+    margin: 60px;
+    justify-content: center;
+    text-align: center;
+}
+.nazvaniePEREHODA {
+    margin: 100px;
+    color: black;
+    background-color: #642EFF;
+    border-radius: 10px;
+    text-align: center;
 }

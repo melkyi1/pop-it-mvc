@@ -7,6 +7,7 @@ use Src\View;
 use Src\Request;
 use Model\User;
 use Src\Auth\Auth;
+use Model\employees;
 
 class Site
 {
@@ -20,6 +21,7 @@ class Site
     {
         return new View('site.hello', ['message' => 'hello working']);
     }
+
     public function signup(Request $request): string
     {
         if ($request->method === 'POST' && User::create($request->all())) {
@@ -27,6 +29,7 @@ class Site
         }
         return new View('site.signup');
     }
+
     public function login(Request $request): string
     {
         //Если просто обращение к странице, то отобразить форму
@@ -47,5 +50,35 @@ class Site
         app()->route->redirect('/hello');
     }
 
+    public function employees(Request $request): string
+    {
+        if ($request->method === 'GET') {
+            return new View('site.employees');
+        }
+        if ($request->method === 'POST' && employees::create($request->all())) {
+            app()->route->redirect('/employees');
+        }
+        {
+            return new View('site.employees');
+        }
+    }
+
+    public function discipline(Request $request): string
+    {
+        if ($request->method === 'GET') {
+            return new View('site.discipline');
+        }
+//        if ($request->method === 'POST' && employees::create($request->all())) {
+//            app()->route->redirect('/employees');
+//        }{
+//        return new View('site.employees');
+//    }
+}
+    public function subdivision(Request $request): string
+    {
+        if ($request->method === 'GET') {
+            return new View('site.subdivision');
+        }
+    }
 }
 
