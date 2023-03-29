@@ -4,7 +4,8 @@
     <div class="mainButtonPosition">
         <a href="employees"><button class="mainButton">Добавить сотрудника</button></a> <br>
         <a href="discipline"><button class="mainButton">Добавить дисциплины</button></a> <br>
-        <a href="subdivision"><button class="mainButton">Добавить подразделения</button></a>
+        <a href="subdivision"><button class="mainButton">Добавить подразделения</button></a> <br>
+        <a href="employeesSPISOK"><button class="mainButton">Список сотрудников</button></a>
     </div>
     </div>
 </div>

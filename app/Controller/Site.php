@@ -2,12 +2,16 @@
 
 namespace Controller;
 
+use Model\EmployeesSpisok;
+use Model\Subdivision;
+use Model\Discipline;
+use Model\Employees;
 use Model\Post;
 use Src\View;
 use Src\Request;
 use Model\User;
 use Src\Auth\Auth;
-use Model\employees;
+
 
 class Site
 {
@@ -25,7 +29,7 @@ class Site
     public function signup(Request $request): string
     {
         if ($request->method === 'POST' && User::create($request->all())) {
-            app()->route->redirect('/go');
+            app()->route->redirect('/hello');
         }
         return new View('site.signup');
     }
@@ -55,7 +59,7 @@ class Site
         if ($request->method === 'GET') {
             return new View('site.employees');
         }
-        if ($request->method === 'POST' && employees::create($request->all())) {
+        if ($request->method === 'POST' && Employees::create($request->all())) {
             app()->route->redirect('/employees');
         }
         {
@@ -68,6 +72,12 @@ class Site
         if ($request->method === 'GET') {
             return new View('site.discipline');
         }
+        if ($request->method === 'POST' && Discipline::create($request->all())) {
+            app()->route->redirect('/discipline');
+        }
+        {
+            return new View('site.discipline');
+        }
 //        if ($request->method === 'POST' && employees::create($request->all())) {
 //            app()->route->redirect('/employees');
 //        }{
@@ -78,6 +88,18 @@ class Site
     {
         if ($request->method === 'GET') {
             return new View('site.subdivision');
+        }
+        if ($request->method === 'POST' && Subdivision::create($request->all())) {
+            app()->route->redirect('/subdivision');
+        }
+        {
+            return new View('site.subdivision');
+        }
+    }
+    public function employeesSPISOK(Request $request): string
+    {
+        if ($request->method === 'GET') {
+            return new View('site.employeesSPISOK');
         }
     }
 }

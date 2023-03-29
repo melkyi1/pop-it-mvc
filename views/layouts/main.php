@@ -11,16 +11,18 @@
 <body>
 <header>
     <nav class="topcollor">
+        <a href="https://vk.com/k.grebenyuk2013"><img src="https://img.icons8.com/fluency-systems-regular/256/vk-com.png"></a><a href="#"><img src="https://img.icons8.com/bubbles/256/discord.png"></a>
         <a class="topButtonRight" href="<?= app()->route->getUrl('/hello') ?>">Главная</a>
+        <a ></a>
         <?php
         if (!app()->auth::check()):
             ?>
             <a class="topButtonRight" href="<?= app()->route->getUrl('/login') ?>">Войти</a>
-            <a href="<?= app()->route->getUrl('/signup') ?>">Регистрация</a>
+            <a class="topButtonRight topButtonRight1" href="<?= app()->route->getUrl('/signup') ?>">Регистрация</a>
         <?php
         else:
             ?>
-            <a class="topButtonRight" href="<?= app()->route->getUrl('/logout') ?>">Выход (<?= app()->auth::user()->name ?>)</a>
+            <a class="topButtonRight topButtonRight1" href="<?= app()->route->getUrl('/logout') ?>">Выход (<?= app()->auth::user()->name ?>)</a>
         <?php
         endif;
         ?>

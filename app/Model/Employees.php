@@ -5,15 +5,15 @@ namespace Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class employees extends Model
+class Employees extends Model
 {
     use HasFactory;
     public $timestamps = false;
     protected $fillable = [
         'ФИО',
         'Пол',
-        'Дата рождения',
-        'Адрес прописки',
+        'birthday',
+        'Адрес',
         'Должность',
         'Подразделение'
     ];

@@ -1,8 +1,11 @@
-<h2>Регистрация нового пользователя</h2>
-<h3><?= $message ?? ''; ?></h3>
+
+<div class="mainBackground">
+    <div class="mainBackgroundfon">
 <form method="post">
-    <label>Имя <input type="text" name="name"></label>
-    <label>Логин <input type="text" name="login"></label>
-    <label>Пароль <input type="password" name="password"></label>
-    <button>Зарегистрироваться</button>
+    <label class="login">Имя <br> <input class="search1" type="text" name="name"></label><br>
+    <label class="login">Логин <br> <input class="search1" type="text" name="login"></label><br>
+    <label class="login">Пароль <br> <input class="search1" type="password" name="password"></label><br>
+    <button class="search1" >Зарегистрироваться</button>
 </form>
+    </div>
+</div>
