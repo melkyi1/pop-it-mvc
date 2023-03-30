@@ -2,6 +2,7 @@
 <div class="mainBackground">
     <div class="mainBackgroundfon">
 <form method="post">
+    <input class="login" name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/> <br>
     <label class="login">Имя <br> <input class="search1" type="text" name="name"></label><br>
     <label class="login">Логин <br> <input class="search1" type="text" name="login"></label><br>
     <label class="login">Пароль <br> <input class="search1" type="password" name="password"></label><br>
