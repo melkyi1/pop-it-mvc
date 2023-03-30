@@ -10,6 +10,7 @@
             <option value="1">Админ</option> <br> </select>
     </label> <br>
     <button class="search1" >Зарегистрироваться</button>
+    <h3><?= $message ?? '';?></h3>
 </form>
     </div>
 </div>
