@@ -15,6 +15,8 @@ class EmployeesSpisok extends Model
         'birthday',
         'Адрес',
         'Должность',
-        'Подразделение'
+        'Подразделение',
+        'ДисциплинаID'
     ];
+
 }

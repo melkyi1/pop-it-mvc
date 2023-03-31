@@ -79,3 +79,16 @@ img {
     height: 45px;
     width: 45px;
 }
+.vivod {
+    color: #00D1FF;
+    justify-content: center;
+    text-align: center;
+
+}
+.zadnikVivoda {
+    margin-left: 450px;
+    background-color: #642EFF;
+    height: 100%;
+    width: 900px;
+    border-radius: 25px;
+}

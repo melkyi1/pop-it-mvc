@@ -115,8 +115,10 @@ class Site
     }
     public function employeesSPISOK(Request $request): string
     {
+        $discipline=Discipline::all();
+        $employees=Employees::all();
         if ($request->method === 'GET') {
-            return new View('site.employeesSPISOK');
+            return new View('site.employeesSPISOK', ['employees'=>$employees, 'discipline'=>$discipline]);
         }
     }
 }

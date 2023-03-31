@@ -15,6 +15,8 @@ class Employees extends Model
         'birthday',
         'Адрес',
         'Должность',
-        'Подразделение'
+        'Подразделение',
+        'ДисциплинаID'
     ];
+    protected $table = 'employees';
 }
