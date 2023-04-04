@@ -2,6 +2,7 @@
     <div class="mainBackgroundfon">
         <a class="nazvaniePEREHODA">Список сотрудников</a> <br>
         <form method="post">
+            <input class="login" name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <ol>
             <?php
             foreach ($employees as $employee) {
@@ -23,6 +24,7 @@
                     echo "<option value=\"$item->ДисцилинаID\">" . $item->Название. '</option>';
                 }
                 echo '</select></label>';
+                echo '<button>Подтвердить </button>';
                 echo '</div>';
                 echo '</div>';
             }

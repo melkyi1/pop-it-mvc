@@ -8,7 +8,13 @@
         <input class="search1" type="date" name="birthday" placeholder="Дата рождения"> <br>
         <input class="search1" type="text" name="Адрес" placeholder="Адрес прописки"> <br>
         <input class="search1" type="text" name="Должность" placeholder="Должность"> <br>
-        <input class="search1" type="text" name="Подразделение" placeholder="Подразделение"> <br>
+            <?php
+        echo '<label>Выбрать подразделение<select name="ПодразделениеID">';
+                foreach ($Subdivisions as $subdiv) {
+                    echo "<option value=\"$subdiv->ПодразделениеID\">" . $subdiv->Name. '</option>';
+                }
+                echo '</select></label>';
+                ?> <br>
             <button class="buttonCONFIRM">Подтвердить</button>
         </form>
 

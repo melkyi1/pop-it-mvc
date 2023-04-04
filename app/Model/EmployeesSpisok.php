@@ -15,7 +15,7 @@ class EmployeesSpisok extends Model
         'birthday',
         'Адрес',
         'Должность',
-        'Подразделение',
+        'ПодразделениеID',
         'ДисциплинаID'
     ];
 

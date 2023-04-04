@@ -73,14 +73,12 @@ class Site
 
     public function employees(Request $request): string
     {
-        if ($request->method === 'GET') {
-            return new View('site.employees');
-        }
         if ($request->method === 'POST' && Employees::create($request->all())) {
             app()->route->redirect('/employees');
         }
+        $Subdivisions=Subdivision::all();
         {
-            return new View('site.employees');
+            return new View('site.employees', ['Subdivisions'=>$Subdivisions]);
         }
     }
 
@@ -119,6 +117,12 @@ class Site
         $employees=Employees::all();
         if ($request->method === 'GET') {
             return new View('site.employeesSPISOK', ['employees'=>$employees, 'discipline'=>$discipline]);
+        }
+        if ($request->method === 'POST' && Employees::create($request->all())) {
+            app()->route->redirect('/employees');
+        }
+        {
+            return new View('site.employeesSPISOK', ['discipline'=>$discipline]);
         }
     }
 }
