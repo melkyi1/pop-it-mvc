@@ -13,15 +13,10 @@
                 echo '<p>Дата рождения: ' . $employee->birthday. '</p>';
                 echo '<p>Адрес: ' . $employee->Адрес. '</p>';
                 echo '<p>Должность: ' . $employee->Должность. '</p>';
-                echo '<p>Подразделение: ' . $employee->Подразделение. '</p>';
-
-//                echo '<label>Выбрать дисциплину<select name="Название">';
-//                echo "<option value=\"$employee->ДисцилинаID\">" .'</option>';
-//                echo '</select></label>'
-//;
-                echo '<label>Выбрать дисциплину<select name="Название">';
-                foreach ($discipline as $item) {
-                    echo "<option value=\"$item->ДисцилинаID\">" . $item->Название. '</option>';
+                echo '<p>Подразделение: ' . $employee->ПодразделениеID. '</p>';
+                echo '<label>Выбрать дисциплину<select name="ДисциплинаID">';
+                foreach ($discipline as $disciple) {
+                    echo "<option value=\"$disciple->ДисциплинаID\">" . $disciple->Название. '</option>';
                 }
                 echo '</select></label>';
                 echo '<button>Подтвердить </button>';
@@ -30,6 +25,7 @@
             }
             ?>
         </ol>
+
         </form>
     </div>
 </div>

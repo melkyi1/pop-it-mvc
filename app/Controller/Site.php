@@ -76,9 +76,10 @@ class Site
         if ($request->method === 'POST' && Employees::create($request->all())) {
             app()->route->redirect('/employees');
         }
+        $discipline=Discipline::all();
         $Subdivisions=Subdivision::all();
         {
-            return new View('site.employees', ['Subdivisions'=>$Subdivisions]);
+            return new View('site.employees', ['Subdivisions'=>$Subdivisions, 'discipline'=>$discipline]);
         }
     }
 
@@ -118,12 +119,39 @@ class Site
         if ($request->method === 'GET') {
             return new View('site.employeesSPISOK', ['employees'=>$employees, 'discipline'=>$discipline]);
         }
-        if ($request->method === 'POST' && Employees::create($request->all())) {
-            app()->route->redirect('/employees');
-        }
+//        if ($request->method === 'POST' && Employees::retrieved($request->all())) {
+//            app()->route->redirect('/employees');
+//        }
+        $employees=Employees::all();
+        $discipline=Discipline::all();
         {
-            return new View('site.employeesSPISOK', ['discipline'=>$discipline]);
+            return new View('site.employeesSPISOK', ['employees'=>$employees, 'discipline'=>$discipline]);
         }
+    }
+    public function Shalte(Request $request)
+    {
+        $disciplines = Discipline::all();
+        $students = Students::all();
+        $performances = Performances::all();
+        $value = $request->all();
+        $value1 = $request->all();
+        $value2 = $request->all();
+        $value3 = $request->all();
+        $value4 = $request->all();
+        if (isset($value['search_value'], $value1['search_value1'], $value2['search_value2'], $value3['search_value3'], $value4['search_value4'])) {
+            $chatons = DB::table('performances')
+                ->join('students', 'performances.studentID', '=', 'students.studentID')
+                ->join('disciplines', 'performances.disciplineID', '=', 'disciplines.disciplineID')
+                ->join('controls', 'disciplines.controlID', '=', 'controls.controlID')
+                ->join('groups', 'students.groupID', '=', 'groups.groupID')
+                ->where('groups.group', $value['search_value'])
+                ->where('students.surname', $value1['search_value1'])
+                ->where('students.name', $value2['search_value2'])
+                ->where('students.middlename', $value3['search_value3'])
+                ->where('disciplines.discipline', $value4['search_value4'])
+                ->get();
+        }
+        return (new View())->render('site.anarchist', ['disciplines' => $disciplines, 'performances' => $performances, 'students' => $students, 'chatons' => $chatons]);
     }
 }
 
