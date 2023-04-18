@@ -2,6 +2,7 @@
 
 namespace Controller;
 
+use Illuminate\Database\Capsule\Manager as DB;
 use Model\EmployeesSpisok;
 use Model\Subdivision;
 use Model\Discipline;
@@ -128,30 +129,45 @@ class Site
             return new View('site.employeesSPISOK', ['employees'=>$employees, 'discipline'=>$discipline]);
         }
     }
-    public function Shalte(Request $request)
+    public function shalteVIVOD(Request $request)
     {
-        $disciplines = Discipline::all();
-        $students = Students::all();
-        $performances = Performances::all();
+
+        return (new View())->render('site.shalteVIVOD');
+    }
+    public function shalte(Request $request)
+    {
+        $discipline=Discipline::all();
+        $employees = Employees::all();
+        $Subdivisions=Subdivision::all();
         $value = $request->all();
-        $value1 = $request->all();
-        $value2 = $request->all();
-        $value3 = $request->all();
-        $value4 = $request->all();
-        if (isset($value['search_value'], $value1['search_value1'], $value2['search_value2'], $value3['search_value3'], $value4['search_value4'])) {
-            $chatons = DB::table('performances')
-                ->join('students', 'performances.studentID', '=', 'students.studentID')
-                ->join('disciplines', 'performances.disciplineID', '=', 'disciplines.disciplineID')
-                ->join('controls', 'disciplines.controlID', '=', 'controls.controlID')
-                ->join('groups', 'students.groupID', '=', 'groups.groupID')
-                ->where('groups.group', $value['search_value'])
-                ->where('students.surname', $value1['search_value1'])
-                ->where('students.name', $value2['search_value2'])
-                ->where('students.middlename', $value3['search_value3'])
-                ->where('disciplines.discipline', $value4['search_value4'])
+//        $value1 = $request->all();
+        if (isset($value['value'])) {
+            $shaltegodx = DB::table('employees')
+                ->join('discipline', 'employees.ДисциплинаID', '=', 'discipline.ДисциплинаID')
+                ->join('Subdivisions', 'employees.ПодразделениеID', '=', 'Subdivisions.ПодразделениеID')
+                ->where('discipline.Название', $value['value'])
+//                ->where('Subdivisions.Name', $value1['value1'])
                 ->get();
         }
-        return (new View())->render('site.anarchist', ['disciplines' => $disciplines, 'performances' => $performances, 'students' => $students, 'chatons' => $chatons]);
+        return (new View())->render('site.shalte', ['employees'=>$employees, 'shaltegodx'=>$shaltegodx, 'discipline'=>$discipline, 'Subdivisions'=>$Subdivisions]);
     }
+    public function shalte1(Request $request)
+    {
+        $discipline=Discipline::all();
+        $employees = Employees::all();
+        $Subdivisions=Subdivision::all();
+//        $value = $request->all();
+        $value1 = $request->all();
+        if (isset($value1['value1'])) {
+            $shaltegodx = DB::table('employees')
+                ->join('discipline', 'employees.ДисциплинаID', '=', 'discipline.ДисциплинаID')
+                ->join('Subdivisions', 'employees.ПодразделениеID', '=', 'Subdivisions.ПодразделениеID')
+//                ->where('discipline.Название', $value['value'])
+                ->where('Subdivisions.Name', $value1['value1'])
+                ->get();
+        }
+        return (new View())->render('site.shalte', ['employees'=>$employees, 'shaltegodx'=>$shaltegodx, 'discipline'=>$discipline, 'Subdivisions'=>$Subdivisions]);
+    }
+
 }
 

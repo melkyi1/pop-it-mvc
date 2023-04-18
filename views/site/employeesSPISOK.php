@@ -26,6 +26,8 @@
             ?>
         </ol>
 
+
         </form>
+        <a href="shalteVIVOD"><button class="mainButton">Поиск</button></a> <br>
     </div>
 </div>

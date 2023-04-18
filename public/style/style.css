@@ -70,6 +70,13 @@
     border-radius: 10px;
     text-align: center;
 }
+.nazvaniePEREHODA2 {
+    margin: 1px;
+    color: black;
+    background-color: #642EFF;
+    border-radius: 10px;
+    text-align: center;
+}
 .login {
     border-radius: 15px;
     color: red;

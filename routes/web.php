@@ -15,3 +15,9 @@ Route::add(['GET', 'POST'], '/subdivision', [Controller\Site::class, 'subdivisio
 ->middleware('auth', 'admin');
 Route::add(['GET', 'POST'], '/employeesSPISOK', [Controller\Site::class, 'employeesSPISOK'])
 ->middleware('auth');
+Route::add(['GET', 'POST'], '/shalte', [Controller\Site::class, 'shalte'])
+    ->middleware('auth');
+Route::add(['GET', 'POST'], '/shalte1', [Controller\Site::class, 'shalte1'])
+    ->middleware('auth');
+Route::add(['GET', 'POST'], '/shalteVIVOD', [Controller\Site::class, 'shalteVIVOD'])
+    ->middleware('auth');
