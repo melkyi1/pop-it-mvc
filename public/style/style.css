@@ -99,3 +99,6 @@ img {
     width: 900px;
     border-radius: 25px;
 }
+.lapka {
+    display: flex;
+}

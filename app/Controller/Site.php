@@ -145,7 +145,7 @@ class Site
             $shaltegodx = DB::table('employees')
                 ->join('discipline', 'employees.ДисциплинаID', '=', 'discipline.ДисциплинаID')
                 ->join('Subdivisions', 'employees.ПодразделениеID', '=', 'Subdivisions.ПодразделениеID')
-                ->where('discipline.Название', $value['value'])
+                ->where('discipline.Название', 'LIKE', '%' . $value['value'] . '%')
 //                ->where('Subdivisions.Name', $value1['value1'])
                 ->get();
         }
@@ -163,7 +163,24 @@ class Site
                 ->join('discipline', 'employees.ДисциплинаID', '=', 'discipline.ДисциплинаID')
                 ->join('Subdivisions', 'employees.ПодразделениеID', '=', 'Subdivisions.ПодразделениеID')
 //                ->where('discipline.Название', $value['value'])
-                ->where('Subdivisions.Name', $value1['value1'])
+                ->where('Subdivisions.Name', 'LIKE', '%' . $value1['value1'] . '%')
+                ->get();
+        }
+        return (new View())->render('site.shalte', ['employees'=>$employees, 'shaltegodx'=>$shaltegodx, 'discipline'=>$discipline, 'Subdivisions'=>$Subdivisions]);
+    }
+    public  function shalte2(Request $request)
+    {
+        $discipline=Discipline::all();
+        $employees = Employees::all();
+        $Subdivisions=Subdivision::all();
+        $value2 = $request->all();
+        $value3 = $request->all();
+        if (isset($value2['value2'], $value3['value3'])) {
+            $shaltegodx = DB::table('employees')
+                ->join('discipline', 'employees.ДисциплинаID', '=', 'discipline.ДисциплинаID')
+                ->join('Subdivisions', 'employees.ПодразделениеID', '=', 'Subdivisions.ПодразделениеID')
+                ->where('Subdivisions.Name', 'LIKE', '%' . $value2['value2'] . '%')
+                ->where ('discipline.Название', 'LIKE', '%' . $value3['value3'] . '%')
                 ->get();
         }
         return (new View())->render('site.shalte', ['employees'=>$employees, 'shaltegodx'=>$shaltegodx, 'discipline'=>$discipline, 'Subdivisions'=>$Subdivisions]);

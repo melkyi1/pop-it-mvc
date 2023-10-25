@@ -21,3 +21,5 @@ Route::add(['GET', 'POST'], '/shalte1', [Controller\Site::class, 'shalte1'])
     ->middleware('auth');
 Route::add(['GET', 'POST'], '/shalteVIVOD', [Controller\Site::class, 'shalteVIVOD'])
     ->middleware('auth');
+Route::add(['GET', 'POST'], '/shalte2', [Controller\Site::class, 'shalte2'])
+    ->middleware('auth');
